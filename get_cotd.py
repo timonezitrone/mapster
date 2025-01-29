@@ -86,16 +86,16 @@ def get_google_image(api_key, latitude, longitude):
 
 
 
-def commit_and_push_changes(image_path):
-    try:
-        subprocess.run(["git", "config", "--global", "user.name", "GitHub Actions"], check=True)
-        subprocess.run(["git", "config", "--global", "user.email", "actions@github.com"], check=True)
-        subprocess.run(["git", "add", image_path], check=True)
-        subprocess.run(["git", "commit", "-m", "Auto-update challenge image"], check=True)
-        subprocess.run(["git", "push"], check=True)
-        print("Changes committed and pushed successfully.")
-    except subprocess.CalledProcessError:
-        print("No changes to commit or an error occurred.")
+# def commit_and_push_changes(image_path):
+#     try:
+#         subprocess.run(["git", "config", "--global", "user.name", "GitHub Actions"], check=True)
+#         subprocess.run(["git", "config", "--global", "user.email", "actions@github.com"], check=True)
+#         subprocess.run(["git", "add", image_path], check=True)
+#         subprocess.run(["git", "commit", "-m", "Auto-update challenge image"], check=True)
+#         subprocess.run(["git", "push"], check=True)
+#         print("Changes committed and pushed successfully.")
+#     except subprocess.CalledProcessError:
+#         print("No changes to commit or an error occurred.")
 
 
 
@@ -153,8 +153,8 @@ def get_challenge_of_the_day(api_key, grid):
         image_path = get_google_image(api_key, lat, lng)
         found_image = image_path is not None
         count += 1
-    if image_path:
-      	commit_and_push_changes(image_path) 
+    # if image_path:
+    #   	commit_and_push_changes(image_path) 
 
     
 with open("world_grid_depth4_europe_final.pkl", "rb") as f:
