@@ -13,7 +13,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          persist-credentials: false  # Disable default GitHub token
+          token: ${{ github.token }}
+          ref: ${{ github.head_ref }}
 
       - name: Set Up Python
         uses: actions/setup-python@v4
