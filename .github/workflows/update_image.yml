@@ -2,9 +2,7 @@ name: Update Image Every Hour
 
 on:
   schedule:
-    - cron: '0 * * * *'
-
-
+    - cron: '0 * * * *'  # Runs at the top of every hour
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
@@ -16,7 +14,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false  # Disable default GitHub token
-
 
       - name: Set Up Python
         uses: actions/setup-python@v4
@@ -33,13 +30,12 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-
+          
           # Fetch the latest changes from the remote branch
           git fetch origin main
 
           # Attempt to merge the changes into the local branch
           git merge origin/main || {
-            # If there are merge conflicts or issues, reset to the remote branch
             echo "Merge conflict or other issues, resetting to the remote branch."
             git reset --hard origin/main
           }
