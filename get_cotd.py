@@ -70,7 +70,7 @@ def get_google_image(api_key, latitude, longitude):
             if response.status_code == 200:
                 # Create a folder to save the image
                 output_folder = "challenge_of_the_day"
-                os.makedirs(output_folder, exist_ok=True)
+                # os.makedirs(output_folder, exist_ok=True)
                 output_path = os.path.join(output_folder, f"lat{latitude}lng{longitude}.jpg")
                 with open(output_path, "wb") as file:
                     file.write(response.content)
