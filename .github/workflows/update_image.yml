@@ -31,8 +31,8 @@ jobs:
         with:
           commit_message: Automated Change
           file_pattern: 'challenge_of_the_day/*.jpg'
-          commit_user_name: My GitHub Actions Bot
           commit_user_email: my-github-actions-bot@example.org
+          commit_author: Author <actions@github.com>
     
 
 
