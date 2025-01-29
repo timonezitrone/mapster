@@ -79,7 +79,7 @@ def get_google_image(api_key, latitude, longitude):
             else:
                 print(f"Failed to fetch image. Status code: {response.status_code}")
         else:
-            print(f"No imagery available for {latitude}, {longitude}. Skipping. {metadata.get('status'} ,,, {metadata.get("copyright")}")
+            print(f"No imagery available for {latitude}, {longitude}. Skipping. {metadata.get('status')} ,,, {metadata.get('copyright')}")
     else:
         print(f"Failed to fetch metadata. Status code: {metadata_response.status_code}")
     return None
